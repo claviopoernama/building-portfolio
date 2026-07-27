@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Login | Portfolio</title>
+ <!-- Font Awesome 6 (free) -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fontawesome/6.0.0-beta3/css/all.min.css" />
+ <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+ <div class="login-container">
+ <div class="login-card">
+ <div class="avatar">
+ <i class="fas fa-user-astronaut"></i>
+ </div>
+ <h1>Welcome Back</h1>
+ <p class="subtitle">Sign in to your portfolio dashboard</p>
+ <form id="loginForm" onsubmit="return handleLogin(event)">
+ <div class="input-group">
+ <i class="fas fa-user"></i>
+ <input type="text" id="username" placeholder="Username" value="admin" required />
+ </div>
+ <div class="input-group">
+ <i class="fas fa-lock"></i>
+ <input type="password" id="password" placeholder="Password" value="123456" required />
+ </div>
+ <div id="loginError" class="error-msg">
+ <i class="fas fa-exclamation-circle"></i> Invalid username or password.
+ </div>
+ <button type="submit" class="btn-login">
+ <i class="fas fa-sign-in-alt"></i> Log In
+ </button>
+ <div class="hint">
+ <span>admin</span> / <span>123456</span>
+ </div>
+ </form>
+ </div>
+ </div>
+ <script>
+ function handleLogin(event) {
+ event.preventDefault();
+ const user = document.getElementById('username').value.trim();
+ const pass = document.getElementById('password').value.trim();
+ const error = document.getElementById('loginError');
+ // Hard-coded credentials
+ if (user === 'admin' && pass === '123456') {
+ error.classList.remove('show');
+ window.location.href = 'dashboard.html';
+ } else {
+ error.classList.add('show');
+ document.getElementById('password').value = '';
+ document.getElementById('password').focus();
+ }
+ return false;
+ }
+ </script>
+</body>
+</html>
