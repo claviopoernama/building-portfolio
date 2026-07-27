@@ -60,4 +60,4 @@ Deployed via **GitHub Pages**:
 
 ## Author
 
-**Clavio Poernama**
+**Clavio Poernama & Akshay Raufa Kumar**
